@@ -1,0 +1,46 @@
+
+
+.bordered-table-container {
+    border: 1px solid #ddd; /* Borda externa da tabela */
+    border-radius: 5px;     /* Arredondar os cantos da borda */
+    padding: 15px;          /* Espaço entre a borda e o conteúdo */
+    background-color: #fff; /* Cor de fundo para a área ao redor da tabela */
+  }
+  
+  p-message {
+    margin-top: 0.5rem;
+  }
+  
+  .p-toast .p-toast-message-success {
+    margin-bottom: 8px; 
+    background-color: rgba(40, 167, 69, 0.4) !important; 
+    color: #fff !important;
+    opacity: 0.9;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1.4); 
+  }
+  
+  .p-toast .p-toast-message-info {
+    background-color: rgba(0, 123, 255, 0.4) !important;
+    color: #fff !important;
+    opacity: 0.9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(1,4, 1,4, 1,4, 1.4);
+  }
+  
+  .p-toast .p-toast-message-warn {
+    background-color: rgba(255, 193, 7, 0.658) !important; 
+    color: #fff !important;
+    opacity: 0.9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1.4);
+  }
+  
+  .p-toast .p-toast-message-error {
+    background-color: rgba(220, 53, 69, 0.4) !important; 
+    color: #fff !important;
+    opacity: 0.9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1.4);
+  }
+    
