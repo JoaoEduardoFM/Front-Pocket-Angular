@@ -8,9 +8,9 @@ import { NumeroService } from 'src/app/service/numero.service';
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-usuarioAdd',
-  templateUrl: './usuarioAdd.component.html',
-  styleUrls: ['./usuarioAdd.component.css'],
+  selector: 'app-usuario-cadastro',
+  templateUrl: './usuario-cadastro.component.html',
+  styleUrls: ['./usuario-cadastro.component.css'],
   providers: [MessageService]
 })
 export class UsuarioAddComponent implements OnInit {

@@ -31,12 +31,12 @@ export class AppComponent implements OnInit {
           {
             label: 'Listar Usuários',
             icon: 'pi pi-fw pi-list',
-            routerLink: ['/user']
+            routerLink: ['/usuario-pesquisa']
           },
           {
             label: 'Adicionar Usuário',
             icon: 'pi pi-fw pi-user-plus',
-            routerLink: ['/usuarioAdd']
+            routerLink: ['/usuario-cadastro']
           }
         ]
       },

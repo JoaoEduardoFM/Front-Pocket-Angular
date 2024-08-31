@@ -6,10 +6,14 @@
   <div class="col-md-8 col-lg-8 bordered-table-container">
     <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">
 
-      <div class="col-md-6 col-lg-4 pr-0">
-        <input type="text" class="form-control" id="nome" name="nome" required="false" [(ngModel)]="nome"
-          placeholder="Pesquisa por nome">
+      <div class="form-group col-md-5">
+        <span class="p-float-label">
+          <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="nome" required
+            style="margin-left: -14px;">
+          <label for="nome">Pesquisa por nome</label>
+        </span>
       </div>
+
       <div class="d-flex align-items-center">
         <button type="button" (click)="aplicarFiltros()" class="btn btn-primary mb-2"
           style="margin-right: 20px;">Buscar</button>
@@ -41,7 +45,7 @@
           <td>{{user.login}}</td>
           <td class="actions-column">
             <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger">Delete</button>
-            <button [routerLink]="['/usuarioAdd', user.id]" routerLinkActive="router-link-active"
+            <button [routerLink]="['/usuario-cadastro', user.id]" routerLinkActive="router-link-active"
               class="btn btn-primary" style="margin-left: 5px;">Editar</button>
           </td>
         </tr>
@@ -54,7 +58,7 @@
     <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">
       <div></div>
       <div class="d-flex align-items-center">
-        <button type="button" [routerLink]="['/usuarioAdd']" class="btn btn-primary mb-2">Novo</button>
+        <button type="button" [routerLink]="['/usuario-cadastro']" class="btn btn-primary mb-2">Novo</button>
       </div>
     </div>
   </div>

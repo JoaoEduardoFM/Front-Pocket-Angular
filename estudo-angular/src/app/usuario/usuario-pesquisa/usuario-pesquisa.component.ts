@@ -4,9 +4,9 @@ import { User } from 'src/app/model/user';
 import { TableLazyLoadEvent } from 'primeng/table';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.css']
+  selector: 'app-usuario-pesquisa',
+  templateUrl: './usuario-pesquisa.component.html',
+  styleUrls: ['./usuario-pesquisa.component.css']
 })
 export class UsuarioComponent implements OnInit {
 

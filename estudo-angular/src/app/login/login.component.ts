@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Message, MessageService } from 'primeng/api';
 import { UsuarioService } from '../service/usuario.service';
 import { Router } from '@angular/router';  // Import do Router
+import { User } from '../model/user';
 
 export interface Usuario {
   username: string;
@@ -19,6 +20,7 @@ export class LoginComponent {
   messages: Message[];
   error: boolean;
   Usuario: Usuario = { username: '', password: '' };
+  user: User;
 
   constructor(
     private messageService: MessageService, 
@@ -48,10 +50,14 @@ export class LoginComponent {
       (data) => {
         if (!data || data.length === 0) {
           console.log(data);
+          this.user = data;
           this.showWarningMessage('Credenciais inválidas.');
           return;
         }
-        this.router.navigate(['/home']);
+        console.log(data);
+        
+        const randomValue = Math.floor(Math.random() * 1000);
+        this.router.navigate(['/home/' + randomValue]);
       },
       (error) => {
         console.error(error);

@@ -154,6 +154,10 @@ p-message {
 
 .small-btn {
   height: 3.2rem; /* Ajuste a altura conforme necessário */
-  padding: 0.25rem 0.5rem; /* Ajuste o padding conforme necessário */
+  padding: 0.35rem 0.5rem; /* Ajuste o padding conforme necessário */
   font-size: 0.75rem; /* Ajuste o tamanho da fonte conforme necessário */
+  margin-top: 0.3rem; /* Adicione margem superior para descer o botão */
 }
+
+
+

@@ -22,17 +22,17 @@ import { TableModule } from 'primeng/table';
 import { AppComponent } from './menu/app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { UsuarioComponent } from './usuario/usuario-pesquisa/usuario.component';
-import { UsuarioAddComponent } from './usuario/usuario-cadastro/usuarioAdd.component'; 
+import { UsuarioComponent } from './usuario/usuario-pesquisa/usuario-pesquisa.component';
+import { UsuarioAddComponent } from './usuario/usuario-cadastro/usuario-cadastro.component';
 
 // Definição das rotas
 export const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home/:id', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
-  { path: 'user', component: UsuarioComponent },
-  { path: 'usuarioAdd', component: UsuarioAddComponent },
-  { path: 'usuarioAdd/:id', component: UsuarioAddComponent }
+  { path: 'usuario-pesquisa', component: UsuarioComponent },
+  { path: 'usuario-cadastro', component: UsuarioAddComponent },
+  { path: 'usuario-cadastro/:id', component: UsuarioAddComponent }
 ];
 
 @NgModule({
