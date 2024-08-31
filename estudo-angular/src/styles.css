@@ -1,0 +1,129 @@
+.bordered-table-container {
+  border: 1px solid hsla(0, 0%, 87%, 0.329);
+  /* Borda externa da tabela */
+  border-radius: 5px;
+  /* Arredondar os cantos da borda */
+  padding: 15px;
+  /* Espaço entre a borda e o conteúdo */
+  background-color: hwb(0 100% 0% / 0.26);
+  /* Cor de fundo para a área ao redor da tabela */
+}
+
+p-message {
+  margin-top: 0.5rem;
+}
+
+.p-toast .p-toast-message-success {
+  margin-bottom: 8px;
+  background-color: #10db3fec !important;
+  color: #fff !important;
+  opacity: 0.9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1.4);
+}
+
+.p-toast .p-toast-message-info {
+  background-color: rgba(0, 123, 255, 0.4) !important;
+  color: #fff !important;
+  opacity: 0.9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(1, 4, 1, 4, 1, 4, 1.4);
+}
+
+.p-toast .p-toast-message-warn {
+  background-color: rgba(255, 193, 7, 0.658) !important;
+  color: #fff !important;
+  opacity: 0.9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1.4);
+}
+
+.p-toast .p-toast-message-error {
+  background-color: rgba(220, 53, 69, 0.4) !important;
+  color: #fff !important;
+  opacity: 0.9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1.4);
+}
+
+.custom-style {
+  color: #3498db;
+  /* cor do texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* sombra */
+  font-family: 'Arial', sans-serif;
+  /* fonte personalizada */
+}
+
+.background-logo3 {
+  position: absolute;
+  top: 0;
+  /* Ajusta a posição para cobrir o fundo */
+  left: 0;
+  width: 100%;
+  /* Ocupa toda a largura do container */
+  height: 100%;
+  /* Ocupa toda a altura do container */
+  background-image: url('src/aguia.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: -1;
+  /* Coloca a imagem atrás dos outros elementos */
+}
+
+/* Adiciona um container para garantir que o formulário não seja afetado */
+.form-container {
+  position: relative;
+  /* Faz com que os filhos se posicionem relativamente ao formulário */
+  z-index: 1;
+  /* Coloca o formulário acima da imagem */
+}
+
+.custom-table th.actions-column,
+.custom-table td.actions-column {
+  width: 120px; /* Define a largura da coluna de ações */
+  text-align: right; /* Alinha o conteúdo à direita */
+}
+
+.custom-table td.actions-column .btn {
+  font-size: 0.875rem; /* Ajusta o tamanho da fonte do botão */
+  padding: 4px 8px; /* Ajusta o padding do botão para caber melhor na coluna */
+}
+
+.custom-table td.actions-column {
+  text-align: right; /* Alinha o conteúdo da célula à direita */
+}
+
+.custom-table td.actions-column .btn {
+  margin-left: 0; /* Remove qualquer margem à esquerda, se houver */
+}
+
+.custom-table {
+  width: 100%; /* Define a largura da tabela */
+  border-collapse: collapse; /* Colapsa as bordas da tabela */
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid #ddd; /* Borda leve para as células */
+  padding: 8px; /* Espaçamento interno das células */
+}
+
+.custom-table th {
+  background-color: #f8f9fa; /* Cor de fundo para o cabeçalho */
+  font-weight: bold; /* Texto em negrito */
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Cor de fundo alternada para linhas pares */
+}
+
+.custom-table tbody tr:hover {
+  background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+.card {
+  border: 1px solid #ddd; /* Borda ao redor do cartão */
+  border-radius: 4px; /* Bordas arredondadas do cartão */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil ao redor do cartão */
+}

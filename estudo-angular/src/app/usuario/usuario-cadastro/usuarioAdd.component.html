@@ -1,0 +1,91 @@
+
+<p-toast position="top-right"></p-toast>
+<form class="form-inline" #formValidade="ngForm">
+  <div class="background-logo3"></div>
+  <h3 style="color: #3498db; text-align: left; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 2.7rem; margin-bottom: 1rem;">Cadastro Usuário</h3>
+  
+  <div class="col-md-8 col-lg-8 bordered-table-container">
+
+    <div class="form-group d-flex flex-wrap align-items-center mb-2">
+      <div class="form-group col-md-1">
+        <input type="text" class="form-control" [(ngModel)]="usuario.id" id="id" disabled name="id"
+          autocomplete="off" placeholder="Id">
+      </div>
+    </div>
+
+    <div class="form-group d-flex flex-wrap align-items-center mb-2">
+      <div class="form-group col-md-4">
+        <input type="text" class="form-control" id="nome" #nomeValidade="ngModel" [(ngModel)]="usuario.nome" name="nome" 
+          required autocomplete="off" placeholder="Nome">
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="usuario.cpf" required
+          autocomplete="off" style="margin-left: 10px;" placeholder="CPF">
+      </div>
+    </div>
+
+    <div class="form-group d-flex flex-wrap align-items-center mb-2">
+      <div class="form-group col-md-4">
+        <input type="text" class="form-control" id="login" [(ngModel)]="usuario.login" #loginValidade="ngModel" name="login" 
+          required autocomplete="off" placeholder="Login">
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" #senhaValidade="ngModel"
+          name="senha" required autocomplete="off" style="margin-left: 10px;" placeholder="Senha">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 col-lg-8 bordered-table-container">
+    <div class="card text-center">
+      <div class="card-header">
+        Telefone Contato
+      </div>
+      <div class="card-body"> <!-- Adiciona uma classe card-body para estilizar o corpo do cartão -->
+        <div class="form-row">
+          <div class="form-group col-md-6 d-flex">
+            <input type="text" class="form-control mr-2" [(ngModel)]="numeroTelefone.numero" id="numero" name="numero" placeholder="Número">
+            <button class="btn btn-primary" style="margin-left: 15px;" (click)="addNumero()">Adicionar</button>
+          </div>
+        </div>
+  
+        <p-table 
+          [value]="telefones" 
+          [paginator]="true" 
+          [rows]="5" 
+          [rowsPerPageOptions]="[5, 10, 20]" 
+          responsiveLayout="scroll"
+          tableStyleClass="custom-table" 
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Número</th>
+              <th class="actions-column">Ações</th> <!-- Adiciona a classe actions-column para a coluna de ações -->
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-numbers>
+            <tr>
+              <td>{{numbers.numero}}</td>
+              <td class="actions-column">
+                <button class="btn btn-danger" (click)="deleteNumero(numbers.id)">Delete</button>
+              </td> 
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 col-lg-8 bordered-table-container">
+    <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">
+      <div></div>
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btn-primary" [routerLink]="['/user']" routerLinkActive="router-link-active">Voltar</button>
+        <button type="button" class="btn btn-primary" (click)="novo()" style="margin-left: 10px;">Novo</button>
+        <button type="button" class="btn btn-primary" [disabled]="formValidade.invalid" (click)="salvarUser()" style="margin-left: 10px;">Salvar</button>
+      </div>
+    </div>
+  </div>
+</form>

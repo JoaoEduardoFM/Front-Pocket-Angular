@@ -1,0 +1,10 @@
+<div class="layout-wrapper">
+  <div class="layout-menu-container" *ngIf="!esconderMenu()">
+    <h3
+      style="color: #3498db; text-align: center; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 1.5rem; margin-bottom: 1rem;">Bem vindo</h3>
+    <p-panelMenu [model]="items" styleClass="custom-panel-menu"></p-panelMenu>
+  </div>
+  <div class="layout-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+:host ::ng-deep .p-menubar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link {
+    padding: 0.75rem 1rem;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:hover {
+    background-color: var(--surface-hover);
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link-active {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+:host ::ng-deep .p-button.p-button-danger.p-button-text {
+    color: var(--red-600);
+}
+
+:host ::ng-deep .p-button.p-button-danger.p-button-text:hover {
+    background: var(--red-100);
+}
+
+@media screen and (max-width: 960px) {
+    :host ::ng-deep .p-menubar .p-menubar-button {
+        display: flex;
+    }
+}
+::ng-deep .ui-megamenu {
+    border: 1px solid #ddd;
+  }
+  
+  ::ng-deep .ui-megamenu .ui-menuitem-text {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  ::ng-deep .p-menubar {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  ::ng-deep .p-menuitem-link {
+    font-size: 14px;
+  }
+
+  .layout-wrapper {
+    display: flex;
+    height: 100vh; /* Altura total da tela */
+  }
+  
+  .layout-menu-container {
+    width: 250px; /* Largura do menu */
+    background-color: #f4f4f4; /* Cor de fundo opcional */
+    border-right: 1px solid #ddd; /* Borda direita opcional */
+    padding: 10px;
+    overflow-y: auto; /* Para rolagem quando necessário */
+  }
+  
+  .layout-content {
+    flex: 1; /* Expande para preencher o espaço restante */
+    padding: 20px;
+    overflow-y: auto; /* Para rolagem quando necessário */
+  }
+  
+  .custom-panel-menu {
+    border: none; /* Remove a borda do panelMenu */
+  }
+  
