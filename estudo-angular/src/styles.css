@@ -82,17 +82,17 @@ p-message {
 
 .custom-table th.actions-column,
 .custom-table td.actions-column {
-  width: 120px; /* Define a largura da coluna de ações */
-  text-align: right; /* Alinha o conteúdo à direita */
+  width: 140px; /* Define a largura da coluna de ações */
+  text-align: center; /* Alinha o conteúdo à direita */
+}
+
+.custom-table td.actions-column {
+  text-align: center; /* Alinha o conteúdo da célula à direita */
 }
 
 .custom-table td.actions-column .btn {
   font-size: 0.875rem; /* Ajusta o tamanho da fonte do botão */
   padding: 4px 8px; /* Ajusta o padding do botão para caber melhor na coluna */
-}
-
-.custom-table td.actions-column {
-  text-align: right; /* Alinha o conteúdo da célula à direita */
 }
 
 .custom-table td.actions-column .btn {
