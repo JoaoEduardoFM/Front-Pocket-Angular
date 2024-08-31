@@ -5,25 +5,25 @@ import { User } from 'src/app/model/user';
 import { ActivatedRoute } from '@angular/router';
 import { Numero } from 'src/app/model/numero';
 import { NumeroService } from 'src/app/service/numero.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-usuario-cadastro',
   templateUrl: './usuario-cadastro.component.html',
   styleUrls: ['./usuario-cadastro.component.css'],
-  providers: [MessageService]
+  providers: [ConfirmationService, MessageService]
 })
 export class UsuarioAddComponent implements OnInit {
 
   telefones: Numero[] = [];
   numeroTelefone = new Numero();
   usuario = new User();
-  successMessage: string = ''; 
-  alertMessage: string = ''; 
-  successTimeout: any; 
+  successMessage: string = '';
+  alertMessage: string = '';
+  successTimeout: any;
   alertTimeout: any;
 
-  constructor(private messageService: MessageService, private routeActive: ActivatedRoute, private usuarioService: UsuarioService, private numeroService: NumeroService) {}
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private routeActive: ActivatedRoute, private usuarioService: UsuarioService, private numeroService: NumeroService) { }
 
   ngOnInit() {
     let idString = this.routeActive.snapshot.paramMap.get('id');
@@ -59,18 +59,28 @@ export class UsuarioAddComponent implements OnInit {
     }
   }
 
-  deleteNumero(id: Number){
-    if (id !== null && confirm("Deseja remover?")) {
-    this.numeroService.deleteNumero(id).subscribe(
-      () => {
-        this.ngOnInit();
+  confirmDelete(id: number) {
+
+    this.confirmationService.confirm({
+      message: 'Você tem certeza que deseja excluir este registro?',
+      header: 'Confirmação de Exclusão',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.numeroService.deleteNumero(id).subscribe(
+          () => {
+            this.ngOnInit();
+          },
+          error => {
+            console.log(`Erro ao excluir usuário com ID ${id}:`, error);
+          }
+        )
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Registro excluído com sucesso' });
       },
-      error => {
-        console.log(`Erro ao excluir usuário com ID ${id}:`, error);
+      reject: () => {
+        this.messageService.add({ severity: 'info', summary: 'Cancelado', detail: 'Ação cancelada' });
       }
-    )
+    });
   }
-}
 
   carregarNumeros(id: Number) {
     this.numeroService.getId(id).subscribe(
@@ -89,9 +99,8 @@ export class UsuarioAddComponent implements OnInit {
     this.numeroTelefone = new Numero();
   }
 
-  addNumero(){
-    if (this.numeroTelefone.numero === undefined || this.numeroTelefone.numero === null) {
-      console.log(this.numeroTelefone)
+  addNumero() {
+    if (this.numeroTelefone.numero === '' || this.numeroTelefone.numero === undefined) {
       this.showWarningMessage('O número deve ser inserido!');
       return;
     }
@@ -99,29 +108,33 @@ export class UsuarioAddComponent implements OnInit {
       this.numeroTelefone.usuarioPk = this.usuario.id;
       this.numeroService.saveNumero(this.numeroTelefone).subscribe(data => {
         this.showSuccessMessage('Número inserido com sucesso!');
-        this.ngOnInit();
+        this.carregarNumeros(this.usuario.id);
+
+
       });
     } else {
-        this.novo();
-        this.showWarningMessage('Cadastre um usuário!');
+      this.novo();
+      this.showWarningMessage('Cadastre um usuário!');
     }
+
+    this.numeroTelefone.numero = '';
   }
 
   clearAlertMessage() {
     this.alertMessage = '';
- 
+
   }
 
   showSuccessMessage(detail: string) {
-    this.messageService.add({severity:'success', summary: 'Sucesso', detail: detail, life: 3000});
+    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: detail, life: 3000 });
   }
 
   showErrorMessage(detail: string) {
-    this.messageService.add({severity:'error', summary: 'Erro', detail: detail, life: 3000});
+    this.messageService.add({ severity: 'error', summary: 'Erro', detail: detail, life: 3000 });
   }
 
   showWarningMessage(detail: string) {
-    this.messageService.add({severity:'warn', summary: 'Atenção', detail: detail, life: 3000});
+    this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: detail, life: 3000 });
   }
 }
 

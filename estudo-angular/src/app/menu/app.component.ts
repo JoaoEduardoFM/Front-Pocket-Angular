@@ -18,11 +18,12 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    const randomValue = Math.floor(Math.random() * 1000);
     this.items = [
       {
         label: 'Home',
         icon: 'pi pi-fw pi-home',
-        routerLink: ['/home']
+        routerLink: ['/home/' + randomValue]
       },
       {
         label: 'Usuários',

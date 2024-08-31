@@ -17,6 +17,10 @@ import { ToastModule } from 'primeng/toast';
 import { PanelMenuModule } from 'primeng/panelmenu'; 
 import { TerminalModule } from 'primeng/terminal';
 import { TableModule } from 'primeng/table';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ConfirmDialogModule } from 'primeng/confirmdialog'; // Importação do ConfirmDialogModule
+import { ConfirmationService } from 'primeng/api'; // Importação do ConfirmationService
+
 
 // Componentes da aplicação
 import { AppComponent } from './menu/app.component';
@@ -44,12 +48,14 @@ export const appRoutes: Routes = [
     UsuarioAddComponent, 
   ],
   imports: [
+    ConfirmDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     NgxPaginationModule,
+    InputMaskModule,
     
     // PrimeNG Modules
     TableModule,
@@ -63,7 +69,7 @@ export const appRoutes: Routes = [
     MessagesModule,
     MessageModule,
   ],
-  providers: [],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
