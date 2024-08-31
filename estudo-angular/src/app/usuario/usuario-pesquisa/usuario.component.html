@@ -40,9 +40,9 @@
           <td>{{user.cpf}}</td>
           <td>{{user.login}}</td>
           <td class="actions-column">
-            <button (click)="deletarUsuario(user.id, 1)" class="btn btn-primary">Delete</button>
+            <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger">Delete</button>
             <button [routerLink]="['/usuarioAdd', user.id]" routerLinkActive="router-link-active"
-              class="btn btn-warning" style="margin-left: 5px;">Editar</button>
+              class="btn btn-primary" style="margin-left: 5px;">Editar</button>
           </td>
         </tr>
       </ng-template>

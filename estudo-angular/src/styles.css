@@ -127,3 +127,33 @@ p-message {
   border-radius: 4px; /* Bordas arredondadas do cartão */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil ao redor do cartão */
 }
+
+.p-float-label {
+  position: relative;
+  margin-top: 0.3rem;
+}
+
+.p-float-label input {
+  padding-top: 1.3rem; /* Ajuste conforme necessário */
+}
+
+.p-float-label label {
+  position: absolute;
+  top: 0.8rem; /* Ajuste conforme necessário */
+  right: 1;
+  color: #007bff; /* Ou qualquer cor desejada para o label */
+}
+
+.p-float-label input:focus + label,
+.p-float-label input:not(:placeholder-shown) + label {
+  top: 0.8rem; /* Ajuste conforme necessário */
+  right: 1;
+  font-size: 0.75rem; /* Ajuste conforme necessário */
+  color: #007bff; /* Ou qualquer cor desejada para o label */
+}
+
+.small-btn {
+  height: 3.2rem; /* Ajuste a altura conforme necessário */
+  padding: 0.25rem 0.5rem; /* Ajuste o padding conforme necessário */
+  font-size: 0.75rem; /* Ajuste o tamanho da fonte conforme necessário */
+}
