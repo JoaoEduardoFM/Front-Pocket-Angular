@@ -6,6 +6,7 @@ export class User {
     cpf: String;
     login : String;
     senha : String;
+    email: String;
 
     constructor() {   
     }
