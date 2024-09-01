@@ -42,6 +42,22 @@ export class AppComponent implements OnInit {
         ]
       },
       {
+        label: 'Estoque',
+        icon: 'pi pi-box text-color-secondary',
+        items: [
+          {
+            label: 'Listar Produtos',
+            icon: 'pi pi-fw pi-list',
+            routerLink: ['/usuario-pesquisa']
+          },
+          {
+            label: 'Cadastrar Produtos',
+            icon: 'pi pi-cart-plus',
+            routerLink: ['/usuario-cadastro']
+          }
+        ]
+      },
+      {
         label: 'Sair',
         icon: 'pi pi-fw pi-sign-out',
         command: () => this.sair() // Chama o método sair() ao clicar
