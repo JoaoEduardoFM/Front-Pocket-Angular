@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
             routerLink: ['/usuario-pesquisa']
           },
           {
-            label: 'Adicionar Usuário',
+            label: 'Cadastrar Usuário',
             icon: 'pi pi-fw pi-user-plus',
             routerLink: ['/usuario-cadastro']
           }
@@ -48,19 +48,19 @@ export class AppComponent implements OnInit {
           {
             label: 'Listar Produtos',
             icon: 'pi pi-fw pi-list',
-            routerLink: ['/usuario-pesquisa']
+            routerLink: ['/produto-pesquisa']
           },
           {
             label: 'Cadastrar Produtos',
             icon: 'pi pi-cart-plus',
-            routerLink: ['/usuario-cadastro']
+            routerLink: ['/produto-cadastro']
           }
         ]
       },
       {
         label: 'Sair',
         icon: 'pi pi-fw pi-sign-out',
-        command: () => this.sair() // Chama o método sair() ao clicar
+        command: () => this.sair() 
       }
     ];
   }

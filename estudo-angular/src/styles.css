@@ -64,7 +64,7 @@ p-message {
   /* Ocupa toda a largura do container */
   height: 100%;
   /* Ocupa toda a altura do container */
-  background-image: url('src/aguia.webp');
+  background-image: url('src/assets/aguia.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.1;

@@ -29,6 +29,8 @@ import { LoginComponent } from './login/login.component';
 import { UsuarioComponent } from './usuario/usuario-pesquisa/usuario-pesquisa.component';
 import { UsuarioAddComponent } from './usuario/usuario-cadastro/usuario-cadastro.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';  
+import { ProdutoCadastroComponent } from './produto/produto-cadastro/produto-cadastro.component';
+import { ProdutoPesquisaComponent } from './produto/produto-pesquisa/produto-pesquisa.component';
 
 // Definição das rotas
 export const appRoutes: Routes = [
@@ -37,7 +39,10 @@ export const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'usuario-pesquisa', component: UsuarioComponent },
   { path: 'usuario-cadastro', component: UsuarioAddComponent },
-  { path: 'usuario-cadastro/:id', component: UsuarioAddComponent }
+  { path: 'usuario-cadastro/:id', component: UsuarioAddComponent },
+  { path: 'produto-pesquisa', component: ProdutoPesquisaComponent },
+  { path: 'produto-cadastro', component: ProdutoCadastroComponent },
+  { path: 'produto-cadastro/:id', component: ProdutoCadastroComponent },
 ];
 
 @NgModule({
@@ -47,6 +52,8 @@ export const appRoutes: Routes = [
     LoginComponent,
     UsuarioComponent,
     UsuarioAddComponent, 
+    ProdutoPesquisaComponent,
+    ProdutoCadastroComponent,
   ],
   imports: [
     ConfirmDialogModule,
