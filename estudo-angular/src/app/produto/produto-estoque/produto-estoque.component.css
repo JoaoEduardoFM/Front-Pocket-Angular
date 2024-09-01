@@ -32,4 +32,36 @@
     transform: translate(-50%, -50%);
     z-index: 1000;
   }
+
+  /* Centraliza o conteúdo do contêiner */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  margin: 1rem 0; /* Adiciona margem superior e inferior */
+}
+
+/* Estilo personalizado para o botão */
+.custom-button {
+  background-color: hsla(120, 90%, 51%, 0.575); /* Altere para a cor desejada */
+  border-color: hsla(120, 90%, 51%, 0.575); /* Altere para a cor desejada */
+  color: white; /* Cor do ícone ou texto */
+}
+
+.custom-button:hover {
+  background-color: #4aaf0fd8; /* Cor ao passar o mouse */
+  border-color:hwb(0 87% 13% / 0.795); /* Borda ao passar o mouse */
+}
+
+.custom-buttonMinus {
+  background-color: hsl(2, 94%, 50%); /* Altere para a cor desejada */
+  border-color: hsl(2, 94%, 50%); /* Altere para a cor desejada */
+  color: white; /* Cor do ícone ou texto */
+}
+
+.custom-buttonMinus :hover {
+  background-color: rgba(245, 15, 8, 0.575); /* Cor ao passar o mouse */
+  border-color:hwb(0 87% 13% / 0.795); /* Borda ao passar o mouse */
+}
+
   

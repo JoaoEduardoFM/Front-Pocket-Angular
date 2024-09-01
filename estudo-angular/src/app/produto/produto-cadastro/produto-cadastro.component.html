@@ -56,9 +56,10 @@
     <div>
       <div>
         <span class="p-float-label">
-        <textarea rows="5" cols="147" pInputTextarea [(ngModel)]="produto.descricao" name="descricao" style="margin-left: 2px;" placeholder="Descrição">
-        </textarea>
-      </span>
+          <input type="text" class="form-control" id="descricao" #nomeValidade="ngModel" [(ngModel)]="produto.descricao"
+            name="descricao" required autocomplete="off" >
+          <label for="descricao">Descrição</label>
+        </span>
       </div>
     </div>
 

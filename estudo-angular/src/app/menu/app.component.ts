@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
           },
           {
             label: 'Gerenciar Estoque',
-            icon: 'pi pi-cart-plus',
+            icon: 'pi pi-sync',
             routerLink: ['/produto-estoque']
           }
         ]

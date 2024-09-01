@@ -1,44 +1,53 @@
-<div class="card">
-  <h1>Gerenciamento de Quantidade de Itens</h1>
-  
-  <!-- Tabela para exibir os itens -->
-  <p-table [value]="items" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="pageSize" [totalRecords]="total">
+<h3
+  style="color: #3498db; text-align: left; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 2.7rem; margin-bottom: 1rem;">
+  Gerenciamento de Estoque</h3>
+
+
+<!-- Tabela para exibir os itens -->
+<div class="background-logo3"></div>
+<div class="col-md-8 col-lg-8 bordered-table-container">
+  <p-table [value]="items" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="pageSize"
+    [totalRecords]="total" tableStyleClass="custom-table" responsiveLayout="scroll">
     <ng-template pTemplate="header">
+
       <tr>
         <th>Nome do Item</th>
-        <th>Quantidade</th>
-        <th>Ações</th>
+        <th>Estoque</th>
+        <th class="text-center">adicionar</th>
+        <th class="text-center">Remover</th>
+        <th>Valor a movimentar</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-item>
       <tr>
-        <td>{{item.nome}}</td> <!-- Corrigido para 'nome' se a propriedade for 'nome' -->
-        <td>{{item.quantidade}}</td> <!-- Corrigido para 'quantidade' se a propriedade for 'quantidade' -->
+        <td>{{item.nome}}</td>
+        <td>{{item.quantidade}}</td>
         <td>
-          <div class="flex align-items-center">
-            <!-- Botão para adicionar quantidade -->
-            <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-text" 
-                    (click)="handleQuantityChange(item, 1)"></button>
+          <div class="button-container text-center">
+            <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-text custom-button"
+              (click)="handleQuantityChange(item, +quantity[item.id] || 1)">
+            </button>
+          </div>
 
-            <!-- Input para quantidade a ser removida -->
-            <p-inputNumber [(ngModel)]="removeQuantity[item.id]" [showButtons]="true" buttonLayout="horizontal" 
-                           inputId="horizontal" spinnerMode="horizontal" [step]="1" 
-                           decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" 
-                           incrementButtonIcon="pi pi-minus" decrementButtonIcon="pi pi-minus" 
-                           [min]="1" [max]="item.quantidade" class="mx-2"></p-inputNumber>
-            
-            <!-- Botão para remover quantidade -->
-            <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-text p-button-danger" 
-                    (click)="handleQuantityChange(item, -removeQuantity[item.id] || 0)"></button>
+        </td>
+        <td>
+          <div class="button-container text-center">
+            <button pButton pRipple type="button" icon="pi pi-minus"
+              class="p-button-rounded p-button-text custom-buttonMinus"
+              (click)="handleQuantityChange(item, -(quantity[item.id] || 1))"></button>
           </div>
         </td>
+
+        <td>
+            <p-inputNumber class="form-control p-inputtext-no-border" id="valor" #nomeValidade="ngModel"
+              [(ngModel)]="quantity[item.id]" name="valor">
+            </p-inputNumber>
+        </td>
+
       </tr>
     </ng-template>
   </p-table>
 </div>
-
-<!-- Confirm Dialog para confirmação de ações -->
-<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
-
-<!-- Toast para mensagens de feedback -->
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"></p-confirmDialog>
 <p-toast></p-toast>

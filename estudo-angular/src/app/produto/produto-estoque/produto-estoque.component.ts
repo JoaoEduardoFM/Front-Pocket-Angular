@@ -16,7 +16,7 @@ export class ProdutoEstoqueComponent implements OnInit {
   total: number = 0;
   pageSize: number = 5;
   pagina: number = 1;
-  removeQuantity: { [key: number]: number } = {};
+  quantity: { [key: number]: number } = {};
   isLoading: boolean = false;
 
   constructor(
@@ -30,7 +30,7 @@ export class ProdutoEstoqueComponent implements OnInit {
   }
 
   handleQuantityChange(item: Produto, change: number) {
-    if (change === 0) return; // Não faz nada se a mudança for zero
+    if (change === 0) return;
 
     this.confirmationService.confirm({
       message: `Você está ${change > 0 ? 'adicionando' : 'removendo'} ${Math.abs(change)} ${change > 0 ? 'a' : 'de'} ${item.nome}.`,
@@ -50,7 +50,7 @@ export class ProdutoEstoqueComponent implements OnInit {
       return;
     }
 
-    item.quantidade = novaQuantidade;
+    item.quantidade = item.quantidade + change;
 
     // Chama o serviço para atualizar o produto no backend
     this.produtoService.saveProduto(item).subscribe(
@@ -82,17 +82,28 @@ export class ProdutoEstoqueComponent implements OnInit {
   }
 
   cadastroProduto() {
-    if (this.produto) {
-      this.produtoService.saveProduto(this.produto).subscribe(response => {
+    if (!this.produto || !this.produto.nome || !this.produto.quantidade) {
+      this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: 'Preencha todos os campos para adicionar um produto!' });
+      return;
+    }
+  
+    // Adiciona o produto à lista
+    this.items.push({ ...this.produto }); // Usa spread para evitar mutação
+  
+    // Chama o serviço para salvar o produto no backend
+    this.produtoService.saveProduto(this.produto).subscribe(
+      response => {
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Produto cadastrado com sucesso!' });
         this.novo(); // Limpa o formulário após o cadastro
         this.carregarPagina({ first: 0, rows: this.pageSize }); // Atualiza a lista de produtos
-      }, error => {
+      },
+      error => {
         console.log('Erro ao cadastrar produto:', error);
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Falha ao cadastrar o produto!' });
-      });
-    }
+      }
+    );
   }
+  
 
   novo() {
     this.produto = new Produto(); // Limpa o objeto produto para um novo cadastro
