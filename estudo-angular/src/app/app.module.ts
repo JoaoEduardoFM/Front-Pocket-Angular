@@ -18,16 +18,17 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { TerminalModule } from 'primeng/terminal';
 import { TableModule } from 'primeng/table';
 import { InputMaskModule } from 'primeng/inputmask';
-import { ConfirmDialogModule } from 'primeng/confirmdialog'; // Importação do ConfirmDialogModule
-import { ConfirmationService } from 'primeng/api'; // Importação do ConfirmationService
-
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog'; 
+import { ConfirmationService } from 'primeng/api';
+import { NgxMaskDirective, NgxMaskPipe, } from 'ngx-mask';
+ 
 // Componentes da aplicação
 import { AppComponent } from './menu/app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UsuarioComponent } from './usuario/usuario-pesquisa/usuario-pesquisa.component';
 import { UsuarioAddComponent } from './usuario/usuario-cadastro/usuario-cadastro.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';  
 
 // Definição das rotas
 export const appRoutes: Routes = [
@@ -56,6 +57,10 @@ export const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     NgxPaginationModule,
     InputMaskModule,
+    ProgressSpinnerModule,
+    NgxMaskPipe,
+    NgxMaskDirective,
+    
     
     // PrimeNG Modules
     TableModule,

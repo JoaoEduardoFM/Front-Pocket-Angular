@@ -1,5 +1,10 @@
+<div *ngIf="isLoading" class="loading-overlay">
+  <p-progressSpinner styleClass="custom-spinner"></p-progressSpinner>
+</div>
+
 <p-toast position="top-right"></p-toast>
-<p-confirmDialog></p-confirmDialog> 
+
+<p-confirmDialog></p-confirmDialog>
 <form class="form-inline" #formValidade="ngForm">
   <div class="background-logo3"></div>
   <h3
@@ -17,15 +22,6 @@
           <label for="id">Id</label>
         </span>
       </div>
-
-      <div class="form-group col-md-9">
-        <span class="p-float-label">
-          <input type="text" class="form-control" id="email" name="E-Mail" [(ngModel)]="usuario.email" required
-            style="margin-left: 10px;">
-          <label for="email">E-Mail</label>
-        </span>
-      </div>
-
     </div>
 
     <div class="form-group d-flex flex-wrap align-items-center mb-2">
@@ -39,9 +35,9 @@
 
       <div class="form-group col-md-6">
         <span class="p-float-label">
-          <input type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="usuario.cpf" required
-            autocomplete="off" style="margin-left: 10px;" mask="999.999.999-50" >
-          <label for="cpf">CPF</label>
+          <input type="text" class="form-control" id="email" name="E-Mail" [(ngModel)]="usuario.email" required
+            style="margin-left: 10px;">
+          <label for="email">E-Mail</label>
         </span>
       </div>
     </div>
@@ -92,7 +88,7 @@
           <ng-template pTemplate="header">
             <tr>
               <th>Número</th>
-              <th class="actions-column" >Ações</th>
+              <th class="actions-column">Ações</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-numbers>

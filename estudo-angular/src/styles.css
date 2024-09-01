@@ -159,5 +159,26 @@ p-message {
   margin-top: 0.3rem; /* Adicione margem superior para descer o botão */
 }
 
+.loading-overlay {
+  position: fixed; /* Fixa o elemento na tela */
+  top: 0; /* Início da tela */
+  left: 0; /* Lado esquerdo da tela */
+  width: 100%; /* Largura total da tela */
+  height: 100%; /* Altura total da tela */
+  display: flex; /* Flexbox para centralizar */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  z-index: 1000; /* Sobrepõe outros elementos */
+}
+
+.custom-spinner {
+  width: 500; /* Tamanho personalizado */
+  height: 500; /* Tamanho personalizado */
+}
+
+.custom-input-mask {
+  width: 600%; /* Ajuste conforme necessário */
+}
 
 

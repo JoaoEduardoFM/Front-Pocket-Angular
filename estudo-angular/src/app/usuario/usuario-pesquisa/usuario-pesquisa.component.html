@@ -34,7 +34,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Nome</th>
-          <th scope="col">Cpf</th>
+          <th scope="col">E-mail</th>
           <th scope="col">Login</th>
           <th class="actions-column">Ações</th>
         </tr>
@@ -43,7 +43,7 @@
         <tr>
           <td>{{user.id}}</td>
           <td>{{user.nome}}</td>
-          <td>{{user.cpf}}</td>
+          <td>{{user.email}}</td>
           <td>{{user.login}}</td>
           <td class="actions-column">
             <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger">Delete</button>

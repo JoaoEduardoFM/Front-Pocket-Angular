@@ -22,6 +22,7 @@ export class UsuarioAddComponent implements OnInit {
   alertMessage: string = '';
   successTimeout: any;
   alertTimeout: any;
+  isLoading: boolean = false;
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private routeActive: ActivatedRoute, private usuarioService: UsuarioService, private numeroService: NumeroService) { }
 
@@ -47,14 +48,17 @@ export class UsuarioAddComponent implements OnInit {
   }
 
   salvarUser() {
+    this.isLoading = true; // Mostra o spinner
     if (this.usuario.id != null && this.usuario.id.toString().trim() != null) {
       this.usuarioService.saveUsuario(this.usuario).subscribe(data => {
-        this.showSuccessMessage('Usuário atualizado com sucesso!');
+        this.showSuccessMessage('Usuário atualizado com sucesso! Verifique seu e-mail.');
+        this.isLoading = false;
       });
     } else {
       this.usuarioService.saveUsuario(this.usuario).subscribe(data => {
-        this.showSuccessMessage('Usuário salvo com sucesso!');
+        this.showSuccessMessage('Usuário salvo com sucesso! Verifique seu e-mail.');
         this.usuario = data;
+        this.isLoading = false; 
       });
     }
   }
