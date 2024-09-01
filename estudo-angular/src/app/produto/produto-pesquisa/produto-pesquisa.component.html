@@ -27,7 +27,7 @@
 
   <div class="col-md-8 col-lg-8 bordered-table-container">
 
-    <p-table [value]="users" [paginator]="true" [rows]="pageSize" [rowsPerPageOptions]="[5, 10, 20]"
+    <p-table [value]="produtos" [paginator]="true" [rows]="pageSize" [rowsPerPageOptions]="[5, 10, 20]"
       responsiveLayout="scroll" [lazy]="true" (onLazyLoad)="carregarPagina($event)" [totalRecords]="total"
       tableStyleClass="custom-table">
       <ng-template pTemplate="header">
@@ -46,8 +46,8 @@
           <td>{{user.quantidade}}</td>
           <td>{{user.preco}}</td>
           <td class="actions-column">
-            <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger">Delete</button>
-            <button [routerLink]="['/usuario-cadastro', user.id]" routerLinkActive="router-link-active"
+            <button (click)="deletarProduto(user.id, 1)" class="btn btn-danger">Delete</button>
+            <button [routerLink]="['/produto-cadastro', user.id]" routerLinkActive="router-link-active"
               class="btn btn-primary" style="margin-left: 5px;">Editar</button>
           </td>
         </tr>

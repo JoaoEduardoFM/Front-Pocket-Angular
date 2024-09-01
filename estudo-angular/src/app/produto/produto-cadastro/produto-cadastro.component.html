@@ -28,23 +28,47 @@
       <div class="form-group col-md-6">
         <span class="p-float-label">
           <input type="text" class="form-control" id="nome" #nomeValidade="ngModel" [(ngModel)]="produto.nome"
-            name="nome" required autocomplete="off">
+            name="nome" required autocomplete="off" >
           <label for="Nome">Nome</label>
         </span>
       </div>
 
+      <div class="form-group col-md-3">
+        <span class="p-float-label ms-0">
+          <p-inputNumber class="form-control p-inputtext-no-border" id="preco" #nomeValidade="ngModel"
+            [(ngModel)]="produto.quantidade" name="preco" [mode]="'decimal'" autocomplete="off">
+          </p-inputNumber>
+          <label for="preco">Quantidade</label>
+        </span>
+      </div>      
+
+      <div class="form-group col-md-3">
+        <span class="p-float-label">
+          <p-inputNumber class="form-control p-inputtext-no-border" id="nome" #nomeValidade="ngModel"
+            [(ngModel)]="produto.preco" name="nome" [mode]="'decimal'" [useGrouping]="true" [minFractionDigits]="2"
+            [maxFractionDigits]="2" autocomplete="off">
+          </p-inputNumber>
+          <label for="Nome">Preço</label>
+        </span>
+      </div>
     </div>
-    <div class="form-group d-flex flex-wrap align-items-center mb-2">
+
+    <div>
+      <div>
+        <textarea rows="5" cols="147" pInputTextarea [(ngModel)]="produto.descricao" name="descricao" style="margin-left: 2px;">
+        </textarea>
+      </div>
     </div>
+
   </div>
   <div class="col-md-8 col-lg-8 bordered-table-container">
     <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">
       <div></div>
       <div class="d-flex align-items-center">
-        <button type="button" class="btn btn-primary" [routerLink]="['/usuario-pesquisa']"
+        <button type="button" class="btn btn-primary" [routerLink]="['/produto-pesquisa']"
           routerLinkActive="router-link-active">Voltar</button>
         <button type="button" class="btn btn-primary" (click)="novo()" style="margin-left: 10px;">Novo</button>
-        <button type="button" class="btn btn-primary" [disabled]="formValidade.invalid" (click)="salvarUser()"
+        <button type="button" class="btn btn-primary" [disabled]="formValidade.invalid" (click)="cadastroProduto()"
           style="margin-left: 10px;">Salvar</button>
       </div>
     </div>

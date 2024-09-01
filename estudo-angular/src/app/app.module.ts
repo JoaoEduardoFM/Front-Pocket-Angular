@@ -31,6 +31,7 @@ import { UsuarioAddComponent } from './usuario/usuario-cadastro/usuario-cadastro
 import { ProgressSpinnerModule } from 'primeng/progressspinner';  
 import { ProdutoCadastroComponent } from './produto/produto-cadastro/produto-cadastro.component';
 import { ProdutoPesquisaComponent } from './produto/produto-pesquisa/produto-pesquisa.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 // Definição das rotas
 export const appRoutes: Routes = [
@@ -67,6 +68,7 @@ export const appRoutes: Routes = [
     ProgressSpinnerModule,
     NgxMaskPipe,
     NgxMaskDirective,
+    InputNumberModule,
     
     
     // PrimeNG Modules

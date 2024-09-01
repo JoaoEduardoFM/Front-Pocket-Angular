@@ -128,11 +128,6 @@ p-message {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil ao redor do cartão */
 }
 
-.p-float-label {
-  position: relative;
-  margin-top: 0.3rem;
-}
-
 .p-float-label input {
   padding-top: 1.3rem; /* Ajuste conforme necessário */
 }
@@ -182,3 +177,30 @@ p-message {
 }
 
 
+/* Remove a borda padrão do p-inputNumber */
+.p-inputtext {
+  border: none !important; /* Remove a borda */
+  box-shadow: none !important; /* Remove qualquer sombra */
+}
+
+/* Ajusta a altura e largura da label */
+.p-float-label > label {
+  font-size: 12px; /* Reduz o tamanho da fonte */
+  padding: 2px 5px; /* Ajusta o preenchimento para reduzir a altura e largura */
+  height: 20px; /* Define uma altura menor */
+  width: auto; /* Define uma largura automática */
+}
+
+/* Ajusta a altura do campo de entrada */
+.p-inputtext {
+  height: 30px; /* Define uma altura menor para o campo de entrada */
+  padding: 2px 5px; /* Ajusta o preenchimento para diminuir o espaço interno */
+  font-size: 14px; /* Ajusta o tamanho da fonte */
+}
+
+/* Ajusta a altura e o tamanho da fonte da label */
+.p-float-label > label {
+  font-size: 12px; /* Reduz o tamanho da fonte da label */
+  padding: 0; /* Remove o preenchimento para uma aparência mais compacta */
+  line-height: 1; /* Ajusta a altura da linha */
+}

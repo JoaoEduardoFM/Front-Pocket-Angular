@@ -17,8 +17,7 @@ import { Produto } from 'src/app/model/produto';
 })
 export class ProdutoCadastroComponent implements OnInit {
 
-  telefones: Numero[] = [];
-  numeroTelefone = new Numero();
+  produtos: Produto[] = [];
   produto = new Produto();
   successMessage: string = '';
   alertMessage: string = '';
@@ -40,64 +39,26 @@ export class ProdutoCadastroComponent implements OnInit {
           this.produto = data;
           console.log('produto:' + data);
         });
-
-        // Carrega os números após carregar o usuário
-        this.carregarProdutos(id);
       } else {
         console.error('ID não é um número válido.');
       }
     }
   }
 
-  salvarUser() {
+  cadastroProduto() {
     this.isLoading = true; // Mostra o spinner
     if (this.produto.id != null && this.produto.id.toString().trim() != null) {
       this.produtoService.saveProduto(this.produto).subscribe(data => {
-        this.showSuccessMessage('Usuário atualizado com sucesso! Verifique seu e-mail.');
+        this.showSuccessMessage('Produto atualizado com sucesso!');
         this.isLoading = false;
       });
     } else {
       this.produtoService.saveProduto(this.produto).subscribe(data => {
-        this.showSuccessMessage('Usuário salvo com sucesso! Verifique seu e-mail.');
+        this.showSuccessMessage('Produto salvo com sucesso!');
         this.produto = data;
         this.isLoading = false; 
       });
     }
-  }
-
-  confirmDelete(id: number) {
-
-    this.confirmationService.confirm({
-      message: 'Você tem certeza que deseja excluir este registro?',
-      header: 'Confirmação de Exclusão',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.numeroService.deleteNumero(id).subscribe(
-          () => {
-            this.ngOnInit();
-          },
-          error => {
-            console.log(`Erro ao excluir usuário com ID ${id}:`, error);
-          }
-        )
-        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Registro excluído com sucesso' });
-      },
-      reject: () => {
-        this.messageService.add({ severity: 'info', summary: 'Cancelado', detail: 'Ação cancelada' });
-      }
-    });
-  }
-
-  carregarProdutos(id: Number) {
-    this.numeroService.getId(id).subscribe(
-      (data: Numero[]) => {
-        this.telefones = data;
-        console.log(data);
-      },
-      error => {
-        console.log('Ocorreu um erro ao buscar os usuários:', error);
-      }
-    );
   }
 
   novo() {
@@ -119,6 +80,7 @@ export class ProdutoCadastroComponent implements OnInit {
   showWarningMessage(detail: string) {
     this.messageService.add({ severity: 'warn', summary: 'Atenção', detail: detail, life: 3000 });
   }
+  
 }
 
 

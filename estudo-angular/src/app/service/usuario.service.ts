@@ -22,7 +22,7 @@ export class UsuarioService {
   }
 
   getNomePage(nome: String, pagina: number): Observable<any> {
-    return this.http.get(AppConstants.baseUrl + 'buscaPorNome/page/'+ nome +'?pagina=' +pagina);
+    return this.http.get(AppConstants.baseUrlUsuario + 'buscaPorNome/page/'+ nome +'?pagina=' +pagina);
   }
 
   getUsuarios() : Observable<any> {
@@ -38,22 +38,22 @@ export class UsuarioService {
 
   // busca por nome
   getNome(nome: String): Observable<any> {
-    return this.http.get(AppConstants.baseUrl + 'buscaPorNome/' + nome);
+    return this.http.get(AppConstants.baseUrlUsuario + 'buscaPorNome/' + nome);
   }
 
   // busca por Login
   getLogin(login: String): Observable<any> {
-    return this.http.get(AppConstants.baseUrl + 'buscaPorLogin/' + login);
+    return this.http.get(AppConstants.baseUrlUsuario + 'buscaPorLogin/' + login);
   }
 
   // busca por id
   getId(id: Number): Observable<any> {
-    return this.http.get<any>(AppConstants.baseUrl + 'buscaPorID/' + id);
+    return this.http.get<any>(AppConstants.baseUrlUsuario + 'buscaPorID/' + id);
   }
 
   // busca por cpf
   getCpf(cpf: String): Observable<any> {
-    return this.http.get(AppConstants.baseUrl + 'buscaPorCpf/' + cpf);
+    return this.http.get(AppConstants.baseUrlUsuario + 'buscaPorCpf/' + cpf);
   }
 
   saveUsuario(usuario: User): Observable<any> {
@@ -62,6 +62,6 @@ export class UsuarioService {
 
   // Busca por login e senha
   getLoginAndSenha(login: string, senha: string): Observable<any> {
-    return this.http.get(`${AppConstants.baseUrl}findByLoginAndSenha/${login}/${senha}`);
+    return this.http.get(`${AppConstants.baseUrlUsuario}findByLoginAndSenha/${login}/${senha}`);
   }
 }

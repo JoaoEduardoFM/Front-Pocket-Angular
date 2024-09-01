@@ -5,13 +5,13 @@ export class AppConstants{
 
     public static get baseLogin(): string {return this.baseServidor + "contexto projeto/login"}
 
-    public static get baseUrl(): string {return this.baseServidor + "usuario/"}
+    public static get baseUrlUsuario(): string {return this.baseServidor + "usuario/"}
 
-    public static get usuariosUrl(): string {return this.baseUrl + "/buscaUsuarios"}
+    public static get usuariosUrl(): string {return this.baseUrlUsuario + "/buscaUsuarios"}
 
-    public static get deleteusuariosUrl(): string {return this.baseUrl + "deletaUsuario/"}
+    public static get deleteusuariosUrl(): string {return this.baseUrlUsuario + "deletaUsuario/"}
 
-    public static get cadastroUsuarioUrl(): string {return this.baseUrl + "cadastraUsuario/"}
+    public static get cadastroUsuarioUrl(): string {return this.baseUrlUsuario + "cadastraUsuario/"}
 
     //Endpoints número
     public static get baseUrlNumero(): string {return this.baseServidor + "Numero/"}
@@ -27,7 +27,7 @@ export class AppConstants{
 
     public static get buscaProdutos(): string {return this.baseUrlProduto + "/buscaProdutos"}
 
-    public static get buscaIDProduto(): string {return this.baseUrlProduto + "buscaPorId/"}
+    public static get buscaIDProduto(): string {return this.baseUrlProduto + "buscaPorID/"}
 
     public static get deleteProdutoUrl(): string {return this.baseUrlProduto + "deletaProduto/"}
 

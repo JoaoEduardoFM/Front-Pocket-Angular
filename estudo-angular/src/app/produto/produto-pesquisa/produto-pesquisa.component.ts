@@ -14,7 +14,7 @@ import { ProdutoService } from 'src/app/service/produto.service';
 })
 export class ProdutoPesquisaComponent implements OnInit {
 
-  users: Produto[] = [];
+  produtos: Produto[] = [];
   nome: string = '';
   login: string = '';
   cpf: string = '';
@@ -34,7 +34,7 @@ export class ProdutoPesquisaComponent implements OnInit {
     this.carregarPagina({ first: 0, rows: this.pageSize });
   }
 
-  deletarUsuario(id: number, index: number) {
+  deletarProduto(id: number, index: number) {
     this.confirmationService.confirm({
       message: 'Você tem certeza que deseja excluir este registro?',
       header: 'Confirmação de Exclusão',
@@ -68,14 +68,14 @@ export class ProdutoPesquisaComponent implements OnInit {
     const pageNumber = (event.first! / rows) + 1;
     this.pageSize = rows;
 
-    this.produtoService.getProdutos().subscribe(
+    this.produtoService.getProdutoListPage(pageNumber - 1).subscribe(
       data => {
         this.pagina = pageNumber;
-        this.users = data.content;
+        this.produtos = data.content;
         this.total = data.totalElements;
       },
       error => {
-        console.log('Ocorreu um erro ao buscar os produtos:', error);
+        console.log('Ocorreu um erro ao buscar os usuários:', error);
       }
     );
   }

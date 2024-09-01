@@ -17,23 +17,32 @@ export class ProdutoService {
 
     }
 
+    // busca todos usuários
+    getProdutoList(): Observable<any> {
+        return this.http.get<any>(AppConstants.buscaProdutos);
+    }
+
+    getProdutoListPage(pagina: number): Observable<any> {
+        return this.http.get<any>(AppConstants.buscaProdutos + '/page/' + pagina);
+    }
+
     // busca todos produtos
-    getProdutos() : Observable<any> {
-        return this.http.get<any>(AppConstants.usuariosUrl)
+    getProdutos(): Observable<any> {
+        return this.http.get<any>(AppConstants.buscaProdutos)
     }
 
     // deleta por id
-    deleteProduto(id: Number) : Observable<any> {
-        return this.http.delete(AppConstants.deleteNumeroUrl + id, {responseType : 'text'});
+    deleteProduto(id: Number): Observable<any> {
+        return this.http.delete(AppConstants.deleteProdutoUrl + id, { responseType: 'text' });
     }
 
     // busca por id produto
-    getId(id: Number) : Observable<any> {
-        return this.http.get<any>(AppConstants.buscaIDProduto + id);
+    getId(id: Number): Observable<any> {
+        return this.http.get<any>(AppConstants.baseUrlProduto + 'buscaPorID/' + id);
     }
 
     // cadastra produto
-    saveProduto(produto: Produto) : Observable<any>{
+    saveProduto(produto: Produto): Observable<any> {
         return this.http.post<any>(AppConstants.cadastroProdutoUrl, produto);
     }
 }
