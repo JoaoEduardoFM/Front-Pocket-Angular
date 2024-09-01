@@ -32,6 +32,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ProdutoCadastroComponent } from './produto/produto-cadastro/produto-cadastro.component';
 import { ProdutoPesquisaComponent } from './produto/produto-pesquisa/produto-pesquisa.component';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ProdutoEstoqueComponent } from './produto/produto-estoque/produto-estoque.component';
 
 // Definição das rotas
 export const appRoutes: Routes = [
@@ -44,6 +45,7 @@ export const appRoutes: Routes = [
   { path: 'produto-pesquisa', component: ProdutoPesquisaComponent },
   { path: 'produto-cadastro', component: ProdutoCadastroComponent },
   { path: 'produto-cadastro/:id', component: ProdutoCadastroComponent },
+  { path: 'produto-estoque', component: ProdutoEstoqueComponent },
 ];
 
 @NgModule({
@@ -55,6 +57,7 @@ export const appRoutes: Routes = [
     UsuarioAddComponent, 
     ProdutoPesquisaComponent,
     ProdutoCadastroComponent,
+    ProdutoEstoqueComponent,
   ],
   imports: [
     ConfirmDialogModule,

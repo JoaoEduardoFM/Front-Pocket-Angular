@@ -3,26 +3,31 @@
   <p-card styleClass="login-card">
     <ng-template pTemplate="header">
       <p-toast position="top-right"></p-toast>
-      <h3 style="color: #3498db; text-align: center; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 2.5rem; margin-bottom: 1rem;">Pocket</h3>
+      <h3
+        style="color: #3498db; text-align: center; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 2.5rem; margin-bottom: 1rem;">
+        Pocket</h3>
       <br>
-      <h3 style="color: #3498db; text-align: center; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 1.5rem; margin-bottom: 1rem;">Login</h3>
+      <h3
+        style="color: #3498db; text-align: center; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 1.5rem; margin-bottom: 1rem;">
+        Login</h3>
     </ng-template>
     <form>
-      <div class="p-field mb-4">
+      <div class="form-group col-md-12">
         <span class="p-float-label">
-          <input type="text" id="login" pInputText [(ngModel)]="Usuario.username" name="login" #user="ngModel"
-            [ngClass]="{'ng-invalid ng-dirty': user.invalid && (user.dirty || user.touched)}">
-          <label for="login">Usuario</label>
+          <input type="text" class="form-control" id="login" #nomeValidade="ngModel" [(ngModel)]="Usuario.username"
+            name="login" required autocomplete="off">
+          <label for="login">Login</label>
         </span>
       </div>
       <br>
-      <div class="p-field mb-4">
+      <div class="form-group col-md-12">
         <span class="p-float-label">
-          <input type="password" id="senha" pInputText [(ngModel)]="Usuario.password" name="senha" #senha="ngModel"
-            [ngClass]="{'ng-invalid ng-dirty': senha.invalid && (senha.dirty || senha.touched)}">
+          <input type="text" class="form-control" id="senha" #nomeValidade="ngModel" [(ngModel)]="Usuario.password"
+            name="senha" required autocomplete="off">
           <label for="senha">Senha</label>
         </span>
       </div>
+      <br>
     </form>
     <button type="button" class="btn btn-primary" (click)="login()">Entrar</button>
   </p-card>

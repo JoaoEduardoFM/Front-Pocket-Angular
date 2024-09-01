@@ -58,9 +58,17 @@ export class ProdutoPesquisaComponent implements OnInit {
 
   aplicarFiltros() {
     if (this.nome) {
+      this.consutarNome();
     } else {
       this.carregarPagina({ first: 0, rows: this.pageSize });
     }
+  }
+
+  consutarNome() {
+    this.produtoService.getNome(this.nome).subscribe(data => {
+      this.produtos = data;
+      this.total = data.length;
+    });
   }
 
   carregarPagina(event: TableLazyLoadEvent) {

@@ -54,6 +54,11 @@ export class AppComponent implements OnInit {
             label: 'Cadastrar Produtos',
             icon: 'pi pi-cart-plus',
             routerLink: ['/produto-cadastro']
+          },
+          {
+            label: 'Gerenciar Estoque',
+            icon: 'pi pi-cart-plus',
+            routerLink: ['/produto-estoque']
           }
         ]
       },

@@ -3,7 +3,7 @@ export class Produto {
     id: Number;
     nome: String;
     descricao: String;
-    quantidade : Number;
+    quantidade : number;
     preco : Number;
 
 }

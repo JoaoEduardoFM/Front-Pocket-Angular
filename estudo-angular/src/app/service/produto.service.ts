@@ -31,6 +31,11 @@ export class ProdutoService {
         return this.http.get<any>(AppConstants.buscaProdutos)
     }
 
+    // busca por nome
+    getNome(nome: String): Observable<any> {
+        return this.http.get(AppConstants.baseUrlProduto + 'buscaNomeProdutos/' + nome);
+    }
+
     // deleta por id
     deleteProduto(id: Number): Observable<any> {
         return this.http.delete(AppConstants.deleteProdutoUrl + id, { responseType: 'text' });
