@@ -3,6 +3,8 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 import { User } from 'src/app/model/user';
 import { TableLazyLoadEvent } from 'primeng/table';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Produto } from 'src/app/model/produto';
+import { ProdutoService } from 'src/app/service/produto.service';
 
 @Component({
   selector: 'app-produto-pesquisa',
@@ -12,7 +14,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class ProdutoPesquisaComponent implements OnInit {
 
-  users: User[] = [];
+  users: Produto[] = [];
   nome: string = '';
   login: string = '';
   cpf: string = '';
@@ -21,7 +23,7 @@ export class ProdutoPesquisaComponent implements OnInit {
   pageSize: number = 5;
   pagina: number = 1;
 
-  constructor(private usuarioService: UsuarioService, private confirmationService: ConfirmationService, private messageService: MessageService) { }
+  constructor(private produtoService: ProdutoService, private confirmationService: ConfirmationService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.carregarPagina({ first: 0, rows: this.pageSize });
@@ -39,13 +41,12 @@ export class ProdutoPesquisaComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
 
-        this.usuarioService.deletarUsuarioList(id).subscribe(
+        this.produtoService.deleteProduto(id).subscribe(
           () => {
-            console.log(`Usuário com ID ${id} excluído com sucesso.`);
             this.carregarPagina({ first: (this.pagina - 1) * this.pageSize, rows: this.pageSize });
           },
           error => {
-            console.log(`Erro ao excluir usuário com ID ${id}:`, error);
+            console.log(`Erro ao excluir Produto com ID ${id}:`, error);
           }
         );
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Registro excluído com sucesso' });
@@ -57,17 +58,9 @@ export class ProdutoPesquisaComponent implements OnInit {
 
   aplicarFiltros() {
     if (this.nome) {
-      this.consutarNome();
     } else {
       this.carregarPagina({ first: 0, rows: this.pageSize });
     }
-  }
-
-  consutarNome() {
-    this.usuarioService.getNome(this.nome).subscribe(data => {
-      this.users = data;
-      this.total = data.length;
-    });
   }
 
   carregarPagina(event: TableLazyLoadEvent) {
@@ -75,14 +68,14 @@ export class ProdutoPesquisaComponent implements OnInit {
     const pageNumber = (event.first! / rows) + 1;
     this.pageSize = rows;
 
-    this.usuarioService.getUsuarioListPage(pageNumber - 1).subscribe(
+    this.produtoService.getProdutos().subscribe(
       data => {
         this.pagina = pageNumber;
         this.users = data.content;
         this.total = data.totalElements;
       },
       error => {
-        console.log('Ocorreu um erro ao buscar os usuários:', error);
+        console.log('Ocorreu um erro ao buscar os produtos:', error);
       }
     );
   }

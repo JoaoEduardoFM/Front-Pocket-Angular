@@ -6,33 +6,34 @@ import { Observable } from "rxjs";
 import { AppConstants } from "./app-constants";
 import { User } from "../model/user";
 import { Numero } from "../model/numero";
+import { Produto } from "../model/produto";
 
 @Injectable({
     providedIn: 'root'
 })
-export class NumeroService {
+export class ProdutoService {
 
     constructor(private http: HttpClient) {
 
     }
 
-    // busca todos números
-    getNumeros() : Observable<any> {
+    // busca todos produtos
+    getProdutos() : Observable<any> {
         return this.http.get<any>(AppConstants.usuariosUrl)
     }
 
     // deleta por id
-    deleteNumero(id: Number) : Observable<any> {
+    deleteProduto(id: Number) : Observable<any> {
         return this.http.delete(AppConstants.deleteNumeroUrl + id, {responseType : 'text'});
     }
 
-    // busca por id usuário
+    // busca por id produto
     getId(id: Number) : Observable<any> {
-        return this.http.get<any>(AppConstants.buscaNumeroPk + id);
+        return this.http.get<any>(AppConstants.buscaIDProduto + id);
     }
 
-    // cadastra número
-    saveNumero(numero: Numero) : Observable<any>{
-        return this.http.post<any>(AppConstants.cadastroNumeroUrl, numero);
+    // cadastra produto
+    saveProduto(produto: Produto) : Observable<any>{
+        return this.http.post<any>(AppConstants.cadastroProdutoUrl, produto);
     }
 }

@@ -23,13 +23,15 @@ export class AppConstants{
     public static get cadastroNumeroUrl(): string {return this.baseUrlNumero + "cadastraNumero/"}
 
     //Endpoints produto
-    public static get baseUrlProduo(): string {return this.baseServidor + "Produto/"}
+    public static get baseUrlProduto(): string {return this.baseServidor + "Produto/"}
 
-    public static get buscaIDProduto(): string {return this.baseUrlNumero + "buscaPorId/"}
+    public static get buscaProdutos(): string {return this.baseUrlProduto + "/buscaProdutos"}
 
-    public static get deleteProdutoUrl(): string {return this.baseUrlNumero + "deletaProduto/"}
+    public static get buscaIDProduto(): string {return this.baseUrlProduto + "buscaPorId/"}
 
-    public static get cadastroProdutoUrl(): string {return this.baseUrlNumero + "cadastraProduto/"}
+    public static get deleteProdutoUrl(): string {return this.baseUrlProduto + "deletaProduto/"}
+
+    public static get cadastroProdutoUrl(): string {return this.baseUrlProduto + "cadastraProduto/"}
 
 
 }

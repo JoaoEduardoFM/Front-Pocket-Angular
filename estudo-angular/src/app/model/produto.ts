@@ -1,4 +1,4 @@
-export class Numero {
+export class Produto {
 
     id: Number;
     nome: String;

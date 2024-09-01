@@ -34,8 +34,8 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Nome</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Login</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Preço</th>
           <th class="actions-column">Ações</th>
         </tr>
       </ng-template>
@@ -43,8 +43,8 @@
         <tr>
           <td>{{user.id}}</td>
           <td>{{user.nome}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.login}}</td>
+          <td>{{user.quantidade}}</td>
+          <td>{{user.preco}}</td>
           <td class="actions-column">
             <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger">Delete</button>
             <button [routerLink]="['/usuario-cadastro', user.id]" routerLinkActive="router-link-active"

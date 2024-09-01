@@ -17,7 +17,7 @@
 
       <div class="form-group col-md-3">
         <span class="p-float-label">
-          <input type="text" class="form-control" [(ngModel)]="usuario.id" id="id" disabled name="id"
+          <input type="text" class="form-control" [(ngModel)]="produto.id" id="id" disabled name="id"
             autocomplete="off">
           <label for="id">Id</label>
         </span>
@@ -27,83 +27,16 @@
     <div class="form-group d-flex flex-wrap align-items-center mb-2">
       <div class="form-group col-md-6">
         <span class="p-float-label">
-          <input type="text" class="form-control" id="nome" #nomeValidade="ngModel" [(ngModel)]="usuario.nome"
+          <input type="text" class="form-control" id="nome" #nomeValidade="ngModel" [(ngModel)]="produto.nome"
             name="nome" required autocomplete="off">
           <label for="Nome">Nome</label>
         </span>
       </div>
 
-      <div class="form-group col-md-6">
-        <span class="p-float-label">
-          <input type="text" class="form-control" id="email" name="E-Mail" [(ngModel)]="usuario.email" required
-            style="margin-left: 10px;">
-          <label for="email">E-Mail</label>
-        </span>
-      </div>
-    </div>
-
-    <div class="form-group d-flex flex-wrap align-items-center mb-2">
-      <div class="form-group col-md-6">
-        <span class="p-float-label">
-          <input type="text" class="form-control" id="login" [(ngModel)]="usuario.login" #loginValidade="ngModel"
-            name="login" required autocomplete="off">
-          <label for="login">Login</label>
-        </span>
-      </div>
-
-      <div class="form-group col-md-6">
-        <span class="p-float-label">
-          <input type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" #senhaValidade="ngModel"
-            name="senha" required autocomplete="off" style="margin-left: 10px;">
-          <label for="senha">Senha</label>
-        </span>
-      </div>
     </div>
     <div class="form-group d-flex flex-wrap align-items-center mb-2">
     </div>
   </div>
-  <div class="col-md-8 col-lg-8 bordered-table-container">
-    <div class="card text-center">
-      <div class="card-header"
-        style="color: #3498db; text-align: left; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem;">
-        Telefone Contato
-      </div>
-      <div class="card-body">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <div class="d-flex align-items-center">
-              <span class="p-float-label flex-grow-1">
-                <input type="text" class="form-control mr-2" [(ngModel)]="numeroTelefone.numero" id="numero"
-                  name="numero">
-                <label for="numero">Número</label>
-              </span>
-              <button class="btn btn-primary small-btn ml-2" (click)="addNumero()">Adicionar</button>
-            </div>
-          </div>
-          <br>
-
-        </div>
-        <p-table [value]="telefones" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]"
-          responsiveLayout="scroll" tableStyleClass="custom-table">
-          <ng-template pTemplate="header">
-            <tr>
-              <th>Número</th>
-              <th class="actions-column">Ações</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-numbers>
-            <tr>
-              <td>{{numbers.numero}}</td>
-              <td class="actions-column">
-                <button class="btn btn-danger" (click)="confirmDelete(numbers.id)">Delete</button>
-              </td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </div>
-    </div>
-  </div>
-
   <div class="col-md-8 col-lg-8 bordered-table-container">
     <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">
       <div></div>
@@ -116,4 +49,5 @@
       </div>
     </div>
   </div>
+
 </form>
