@@ -18,6 +18,7 @@ export class ProdutoEstoqueComponent implements OnInit {
   pagina: number = 1;
   quantity: { [key: number]: number } = {};
   isLoading: boolean = false;
+  nome: string = '';
 
   constructor(
     private messageService: MessageService,
@@ -64,6 +65,21 @@ export class ProdutoEstoqueComponent implements OnInit {
     );
   }
 
+  aplicarFiltros() {
+    if (this.nome) {
+      this.consutarNome();
+    } else {
+      this.carregarPagina({ first: 0, rows: this.pageSize });
+    }
+  }
+
+  consutarNome() {
+    this.produtoService.getNome(this.nome).subscribe(data => {
+      this.items = data;
+      this.total = data.length;
+    });
+  }
+
   carregarPagina(event: TableLazyLoadEvent) {
     const rows = event.rows ?? this.pageSize;
     const pageNumber = (event.first! / rows) + 1;
@@ -72,14 +88,20 @@ export class ProdutoEstoqueComponent implements OnInit {
     this.produtoService.getProdutoListPage(pageNumber - 1).subscribe(
       data => {
         this.pagina = pageNumber;
-        this.items = data.content; 
+        this.items = data.content;
         this.total = data.totalElements;
       },
       error => {
-        console.log('Ocorreu um erro ao buscar os produtos:', error);
+        console.log('Ocorreu um erro ao buscar os usuários:', error);
       }
     );
   }
+
+  limparCampos() {
+    this.nome = '';
+    this.carregarPagina({ first: 0, rows: this.pageSize });
+  }
+  
 
   cadastroProduto() {
     if (!this.produto || !this.produto.nome || !this.produto.quantidade) {

@@ -27,9 +27,9 @@
 
   <div class="col-md-8 col-lg-8 bordered-table-container">
 
-    <p-table [value]="produtos" [paginator]="true" [rows]="pageSize" [rowsPerPageOptions]="[5, 10, 20]"
-      responsiveLayout="scroll" [lazy]="true" (onLazyLoad)="carregarPagina($event)" [totalRecords]="total"
-      tableStyleClass="custom-table">
+    <p-table [value]="produtos" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="pageSize"
+      [totalRecords]="total" [lazy]="true" (onLazyLoad)="carregarPagina($event)" tableStyleClass="custom-table"
+      responsiveLayout="scroll">
       <ng-template pTemplate="header">
         <tr>
           <th scope="col">ID</th>
@@ -54,7 +54,9 @@
       </ng-template>
     </p-table>
 
+
   </div>
+  
 
   <div class="col-md-8 col-lg-8 bordered-table-container">
     <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">

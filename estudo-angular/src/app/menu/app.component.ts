@@ -41,6 +41,18 @@ export class AppComponent implements OnInit {
           }
         ]
       },
+
+      {
+        label: 'Financeiro',
+        icon: 'pi pi-money-bill',
+        items: [
+          {
+            label: 'Caixa',
+            icon: 'pi pi-shopping-cart',
+            routerLink: ['/produto-caixa']
+          },
+        ]
+      },
       {
         label: 'Estoque',
         icon: 'pi pi-box text-color-secondary',
@@ -59,7 +71,7 @@ export class AppComponent implements OnInit {
             label: 'Gerenciar Estoque',
             icon: 'pi pi-sync',
             routerLink: ['/produto-estoque']
-          }
+          },
         ]
       },
       {
