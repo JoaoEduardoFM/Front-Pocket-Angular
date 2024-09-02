@@ -19,7 +19,7 @@ export class ProdutoCaixaComponent implements OnInit {
   cart: CartItem[] = [];
   total: number = 0;
   searchTerm: string = '';
-  nome: string = '';
+  nome: String = '';
   login: string = '';
   cpf: string = '';
   id: number = 0;
@@ -30,13 +30,10 @@ export class ProdutoCaixaComponent implements OnInit {
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private produtoService: ProdutoService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    console.log(this.nome)
-    if(this.nome != undefined && this.nome != ''){
-      this.carregarPagina({ first: 0, rows: this.pageSize });
-    }  
+    this.carregarPagina({ first: 0, rows: this.pageSize });
   }
 
   carregarProdutos() {
@@ -67,6 +64,7 @@ export class ProdutoCaixaComponent implements OnInit {
     this.updateTotal();
   }
 
+
   removeFromCart(item: Produto) {
     const index = this.cart.findIndex(cartItem => cartItem.id === item.id);
     if (index > -1) {
@@ -78,9 +76,12 @@ export class ProdutoCaixaComponent implements OnInit {
       this.updateTotal();
     }
   }
+  atualizarGrid() {
+    this.carregarPagina({ first: this.pageSize * (this.pagina - 1), rows: this.pageSize });
+  }
 
   updateTotal() {
-    this.total = this.cart.reduce((sum, item) => sum * item.cartQuantity, 0);
+    this.total = this.cart.reduce((sum, item) => sum + (item.preco * item.cartQuantity), 0);
   }
 
   completeSale() {
@@ -94,6 +95,7 @@ export class ProdutoCaixaComponent implements OnInit {
           this.produtoService.saveProduto(updatedProduct).subscribe(
             response => {
               console.log('Produto atualizado:', response);
+              this.carregarPagina({ first: 0, rows: this.pageSize });
             },
             error => {
               console.error('Erro ao atualizar produto:', error);
