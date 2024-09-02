@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProdutoService } from 'src/app/service/produto.service';
 import { Produto } from 'src/app/model/produto';
+import { TableLazyLoadEvent } from 'primeng/table';
 
 interface CartItem extends Produto {
   cartQuantity: number;
@@ -18,6 +19,12 @@ export class ProdutoCaixaComponent implements OnInit {
   cart: CartItem[] = [];
   total: number = 0;
   searchTerm: string = '';
+  nome: string = '';
+  login: string = '';
+  cpf: string = '';
+  id: number = 0;
+  pageSize: number = 5;
+  pagina: number = 1;
 
   constructor(
     private messageService: MessageService,
@@ -26,7 +33,10 @@ export class ProdutoCaixaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.carregarProdutos();
+    console.log(this.nome)
+    if(this.nome != undefined && this.nome != ''){
+      this.carregarPagina({ first: 0, rows: this.pageSize });
+    }  
   }
 
   carregarProdutos() {
@@ -97,5 +107,42 @@ export class ProdutoCaixaComponent implements OnInit {
         this.carregarProdutos();
       }
     });
+  }
+
+  aplicarFiltros() {
+    if (this.nome) {
+      this.consutarNome();
+    } else {
+      this.carregarPagina({ first: 0, rows: this.pageSize });
+    }
+  }
+
+  limparCampos() {
+    this.nome = '';
+    this.carregarPagina({ first: 0, rows: this.pageSize });
+  }
+
+  consutarNome() {
+    this.produtoService.getNome(this.nome).subscribe(data => {
+      this.produtos = data;
+      this.total = data.length;
+    });
+  }
+
+  carregarPagina(event: TableLazyLoadEvent) {
+    const rows = event.rows ?? this.pageSize;
+    const pageNumber = (event.first! / rows) + 1;
+    this.pageSize = rows;
+
+    this.produtoService.getProdutoListPage(pageNumber - 1).subscribe(
+      data => {
+        this.pagina = pageNumber;
+        this.produtos = data.content;
+        this.total = data.totalElements;
+      },
+      error => {
+        console.log('Ocorreu um erro ao buscar os usuários:', error);
+      }
+    );
   }
 }

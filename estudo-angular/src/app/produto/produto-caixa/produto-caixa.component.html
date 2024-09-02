@@ -5,27 +5,37 @@
 <div class="p-grid">
     <div class="background-logo3"></div>
 
-    <div class="p-col-12 p-md-6">
+    <div class="col-md-8 col-lg-8 bordered-table-container">
         <p-card>
 
-        <div class="form-group d-flex flex-wrap align-items-center mb-2">
+            <div class="col-md-12 col-lg-12 bordered-table-container">
+                <div class="form-group mx-sm-3 mb-2 d-flex justify-content-between">
+            
+                  <div class="form-group col-md-5">
+                    <span class="p-float-label">
+                      <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="nome" required
+                        style="margin-left: -14px;">
+                      <label for="nome">Pesquisa por nome</label>
+                    </span>
+                  </div>
+            
+                  <div class="d-flex align-items-center">
+                    <button type="button" (click)="aplicarFiltros()" class="btn btn-primary mb-2"
+                      style="margin-right: 20px;">Buscar</button>
+                    <button type="button" (click)="limparCampos()" class="btn btn-secondary mb-2">Limpar</button>
+                  </div>
+            
+                </div>
+              </div>
 
-            <div class="form-group col-md-3">
-              <span class="p-float-label">
-                <input type="text" class="form-control" [(ngModel)]="searchTerm" id="prod" name="prod"
-                  autocomplete="off">
-                <label for="prod">Buscar Produto</label>
-              </span>
-            </div>
-          </div>
-
-            <p-table [value]="produtos" [rows]="10" [paginator]="true" [globalFilterFields]="['nome']" [filterDelay]="0"
-                [tableStyle]="{'min-width': '50rem'}" styleClass="p-datatable-sm" [rowHover]="true">
-                <ng-template pTemplate="header" tableStyleClass="custom-table">
+            <p-table [value]="produtos" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="pageSize"
+                [totalRecords]="total" [lazy]="true" (onLazyLoad)="carregarPagina($event)"
+                tableStyleClass="custom-table" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
                     <tr>
-                        <th pSortableColumn="nome">Nome do Item <p-sortIcon field="nome"></p-sortIcon></th>
-                        <th pSortableColumn="preco">Preço <p-sortIcon field="preco"></p-sortIcon></th>
-                        <th pSortableColumn="quantidade">Estoque <p-sortIcon field="quantidade"></p-sortIcon></th>
+                        <th pSortableColumn="nome">Nome produto</th>
+                        <th pSortableColumn="preco">Preço</th>
+                        <th pSortableColumn="quantidade">Estoque</th>
                         <th>Ação</th>
                     </tr>
                 </ng-template>
@@ -34,18 +44,14 @@
                         <td>{{produto.nome}}</td>
                         <td>{{produto.preco | currency:'BRL'}}</td>
                         <td>{{produto.quantidade}}</td>
-                        <td>
+                        <td class="actions-column">
                             <p-button icon="pi pi-plus" styleClass="p-button-rounded p-button-text"
                                 (click)="addToCart(produto)"></p-button>
                         </td>
                     </tr>
                 </ng-template>
             </p-table>
-        </p-card>
-    </div>
-
-    <div class="col-md-8 col-lg-8 bordered-table-container">
-        <h3
+            <h3
             style="color: #3498db; text-align: left; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 2.7rem; margin-bottom: 1rem;">
             Carrinho de Compras</h3>
         <p-card header="">
@@ -63,11 +69,13 @@
                     <tr>
                         <td>{{item.nome}}</td>
                         <td>
-                            <p-inputNumber [(ngModel)]="item.cartQuantity" [showButtons]="true"
+                            <p-inputNumber [(ngModel)]="item.cartQuantity" 
                                 buttonLayout="horizontal" spinnerMode="horizontal" [min]="1" [max]="item.quantidade"
                                 decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
-                                incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
+                                incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" class="form-control p-inputtext-no-border"
                                 (onInput)="updateTotal()"></p-inputNumber>
+
+                               
 
                         </td>
                         <td>{{item.preco | currency:'BRL'}}</td>
@@ -89,6 +97,11 @@
                     [disabled]="cart.length === 0"></p-button>
             </div>
         </p-card>
+        </p-card>
+    </div>
+
+    <div class="col-md-8 col-lg-8 bordered-table-container">
+        
     </div>
 </div>
 
