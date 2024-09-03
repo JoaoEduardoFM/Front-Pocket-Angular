@@ -2,8 +2,8 @@
     style="color: #3498db; text-align: left; text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.6); font-weight: bold; font-size: 2.7rem; margin-bottom: 1rem;">
     Carrinho de Compras
 </h3>
-
-<div class="card-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+<div class="background-logo3"></div>
+<div class="col-md-12 col-lg-12 bordered-table-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
     <div class="card-content" style="flex: 1; min-width: 300px;">
         <p-card>
             <div class="bordered-table-container">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <p-table [value]="produtos" (onLazyLoad)="carregarPagina()" [tableStyle]="{'min-width': '40rem'}"
-                styleClass="custom-table" responsiveLayout="scroll">
+                styleClass="custom-table" responsiveLayout="scroll" >
                 <ng-template pTemplate="header">
                     <tr>
                         <th pSortableColumn="nome">Nome do produto</th>
