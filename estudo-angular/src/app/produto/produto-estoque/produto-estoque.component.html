@@ -24,7 +24,7 @@
 
     </div>
   </div>
-  <div class="col-md-8 col-lg-8 bordered-table-container">
+  <div class="col-md-4 col-lg-8 bordered-table-container">
 
     <p-table [value]="items" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="pageSize"
       [totalRecords]="total" [lazy]="true" (onLazyLoad)="carregarPagina($event)" tableStyleClass="custom-table"
@@ -40,7 +40,7 @@
       </ng-template>
       <ng-template pTemplate="body" let-item>
         <tr>
-          <td>{{item.nome}}</td>
+          <td [pTooltip]="item.nome" tooltipPosition="top" class="truncate">{{item.nome}}</td>
           <td>{{item.quantidade}}</td>
           <td>
             <div class="button-container text-center">
@@ -61,8 +61,8 @@
 
           <td>
             <p-inputNumber class="form-control p-inputtext-no-border" id="valor" #nomeValidade="ngModel"
-              [(ngModel)]="quantity[item.id]" name="valor">
-            </p-inputNumber>
+              [(ngModel)]="quantity[item.id]" name="valor" [ngClass]="{'form-control': true, 'p-inputtext-no-border': true, 'small-input-number': true}">
+            </p-inputNumber>              
           </td>
 
         </tr>

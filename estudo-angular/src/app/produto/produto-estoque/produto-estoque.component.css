@@ -64,4 +64,29 @@
   border-color:hwb(0 87% 13% / 0.795); /* Borda ao passar o mouse */
 }
 
+:host ::ng-deep .p-float-label label {
+  margin-top: -.5rem;
+}
+
+.custom-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.small-input-number {
+  width: 225px; /* Ajuste o valor para o tamanho desejado */
+  max-width: 100%;
+}
+
+.truncate {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 150px; /* Ajuste conforme necessário */
+}
+
+
+
   

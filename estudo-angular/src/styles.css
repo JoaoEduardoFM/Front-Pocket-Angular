@@ -204,3 +204,8 @@ p-message {
   padding: 0; /* Remove o preenchimento para uma aparência mais compacta */
   line-height: 1; /* Ajusta a altura da linha */
 }
+
+.small-input-number {
+  width: 225px; /* Ajuste o valor para o tamanho desejado */
+  max-width: 100%;
+}
