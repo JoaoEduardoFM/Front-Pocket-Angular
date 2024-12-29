@@ -3,7 +3,7 @@
 
 > Status: Em desenvolvimento ⚠️
 
-### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e de usuários.
+### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e usuários.
 
 ## Principais funcionalidades:
 + gerenciamento de usuário
