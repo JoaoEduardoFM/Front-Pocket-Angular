@@ -1,4 +1,4 @@
 # Front-Curso-Angular
-![123](https://github.com/JoaoEduardoFM/Front-Curso-Angular/assets/90796699/a127702e-eeee-4988-9488-51678f22d2d3)
+![angular front](https://github.com/user-attachments/assets/8a0d0fd2-10c8-4002-8f83-291169947ffb)
 
 > Status: Em desenvolvimento ⚠️
