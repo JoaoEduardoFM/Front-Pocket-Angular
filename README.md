@@ -1,5 +1,5 @@
 # Front-Pocket-Angular
-(![image](https://github.com/user-attachments/assets/94f099b9-d0f2-4689-aaf1-e44ab313486a)
+![image](https://github.com/user-attachments/assets/94f099b9-d0f2-4689-aaf1-e44ab313486a)
 
 
 > Status: Desenvolvido ⚠️
