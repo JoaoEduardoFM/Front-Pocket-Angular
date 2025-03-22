@@ -32,23 +32,23 @@
       responsiveLayout="scroll">
       <ng-template pTemplate="header">
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Quantidade</th>
-          <th scope="col">Preço</th>
-          <th class="actions-column">Ações</th>
+          <th scope="col" class="text-center">ID</th>
+          <th scope="col" class="text-center">Nome</th>
+          <th scope="col" class="text-center">Quantidade</th>
+          <th scope="col" class="text-center">Preço</th>
+          <th class="actions-column" class="text-center">Ações</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
         <tr>
           <td>{{user.id}}</td>
           <td>{{user.nome}}</td>
-          <td>{{user.quantidade}}</td>
-          <td>{{user.preco}}</td>
-          <td class="actions-column">
-            <button (click)="deletarProduto(user.id, 1)" class="btn btn-danger">Delete</button>
+          <td class="text-center">{{user.quantidade}}</td>
+          <td class="text-center">{{user.preco}}</td>
+          <td class="actions-column">      
             <button [routerLink]="['/produto-cadastro', user.id]" routerLinkActive="router-link-active"
-              class="btn btn-primary" style="margin-left: 5px;">Editar</button>
+              class="btn btn-primary">Editar</button>
+            <button (click)="deletarProduto(user.id, 1)" class="btn btn-danger" style="margin-left: 5px;">Delete</button>
           </td>
         </tr>
       </ng-template>

@@ -25,6 +25,10 @@
     margin-top: -.5rem;
   }
 
+  .custom-column {
+    width: 150px; 
+  }
+  
   .custom-spinner {
     position: fixed;
     top: 50%;

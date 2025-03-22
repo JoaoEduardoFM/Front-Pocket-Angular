@@ -33,24 +33,7 @@ export class AppComponent implements OnInit {
             label: 'Listar Usuários',
             icon: 'pi pi-fw pi-list',
             routerLink: ['/usuario-pesquisa']
-          },
-          {
-            label: 'Cadastrar Usuário',
-            icon: 'pi pi-fw pi-user-plus',
-            routerLink: ['/usuario-cadastro']
           }
-        ]
-      },
-
-      {
-        label: 'Financeiro',
-        icon: 'pi pi-money-bill',
-        items: [
-          {
-            label: 'Caixa',
-            icon: 'pi pi-shopping-cart',
-            routerLink: ['/produto-caixa']
-          },
         ]
       },
       {
@@ -63,14 +46,20 @@ export class AppComponent implements OnInit {
             routerLink: ['/produto-pesquisa']
           },
           {
-            label: 'Cadastrar Produtos',
-            icon: 'pi pi-cart-plus',
-            routerLink: ['/produto-cadastro']
-          },
-          {
             label: 'Gerenciar Estoque',
             icon: 'pi pi-sync',
             routerLink: ['/produto-estoque']
+          },
+        ]
+      },
+      {
+        label: 'Financeiro',
+        icon: 'pi pi-money-bill',
+        items: [
+          {
+            label: 'Caixa',
+            icon: 'pi pi-shopping-cart',
+            routerLink: ['/produto-caixa']
           },
         ]
       },

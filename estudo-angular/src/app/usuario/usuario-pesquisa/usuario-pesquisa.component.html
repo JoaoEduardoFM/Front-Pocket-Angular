@@ -32,11 +32,11 @@
       tableStyleClass="custom-table">
       <ng-template pTemplate="header">
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Login</th>
-          <th class="actions-column">Ações</th>
+          <th scope="col" class="text-center">ID</th>
+          <th scope="col" class="text-center">Nome</th>
+          <th scope="col" class="text-center">E-mail</th>
+          <th scope="col" class="text-center">Login</th>
+          <th class="actions-column" class="text-center">Ações</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-user>
@@ -46,9 +46,9 @@
           <td>{{user.email}}</td>
           <td>{{user.login}}</td>
           <td class="actions-column">
-            <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger">Delete</button>
             <button [routerLink]="['/usuario-cadastro', user.id]" routerLinkActive="router-link-active"
-              class="btn btn-primary" style="margin-left: 5px;">Editar</button>
+              class="btn btn-primary">Editar</button>
+            <button (click)="deletarUsuario(user.id, 1)" class="btn btn-danger" style="margin-left: 5px;">Delete</button>          
           </td>
         </tr>
       </ng-template>

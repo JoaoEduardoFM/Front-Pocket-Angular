@@ -18,7 +18,13 @@ export class ProdutoCaixaComponent implements OnInit {
   produtos: Produto[] = [];
   cart: CartItem[] = [];
   total: number = 0;
+  produtoSize: number = 0;
   nome: string = '';
+  login: string = '';
+  cpf: string = '';
+  id: number = 0;
+  pageSize: number = 5;
+  pagina: number = 1;
 
   constructor(
     private messageService: MessageService,
@@ -27,8 +33,12 @@ export class ProdutoCaixaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.carregarPagina();
+    this.carregarPaginaLazy({
+      first: 0,
+      rows: this.pageSize  
+    });
   }
+  
 
   addToCart(produto: Produto) {
     if (produto.quantidade <= 0) {
@@ -55,11 +65,13 @@ export class ProdutoCaixaComponent implements OnInit {
         this.cart.splice(index, 1);
       }
       this.updateTotal();
+      
     }
   }
 
   updateTotal() {
     this.total = this.cart.reduce((sum, item) => sum + (item.preco * item.cartQuantity), 0);
+   // this.carregarPaginaLazy({first: 0, rows: this.pageSize });
   }
 
   completeSale() {
@@ -83,7 +95,7 @@ export class ProdutoCaixaComponent implements OnInit {
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Venda realizada com sucesso!' });
         this.cart = [];
         this.total = 0;
-        this.carregarPagina();
+        //this.carregarPaginaLazy({first: 0, rows: this.pageSize});
       }
     });
   }
@@ -92,31 +104,51 @@ export class ProdutoCaixaComponent implements OnInit {
     if (this.nome) {
       this.consultarNome();
     } else {
-      this.carregarPagina();
+      this.carregarPaginaLazy({first: 0, rows: this.pageSize});
     }
   }
 
   limparCampos() {
     this.nome = '';
+    this.carregarPagina();
   }
 
   consultarNome() {
     this.produtoService.getNome(this.nome).subscribe(data => {
       this.produtos = data;
-      this.total = data.length;
     });
   }
 
   carregarPagina() {
     this.produtoService.getProdutos().subscribe(
       (data: Produto[]) => {
-        this.produtos = data; // Ajuste se a resposta for um array de produtos
-        this.total = data.length; // Ajuste se `total` é simplesmente o comprimento do array
+        this.produtos = data; 
+        this.total = this.cart.reduce((sum, item) => sum + (item.preco * item.cartQuantity), 0);
       },
       error => {
         console.error('Ocorreu um erro ao buscar os produtos:', error);
       }
     );
   }
+
+  carregarPaginaLazy(event: TableLazyLoadEvent) {
+    const rows = event.rows ?? this.pageSize;
+    const pageNumber = (event.first! / rows) + 1;
+    this.pageSize = rows;
+
+    this.produtoService.getProdutoListPage(pageNumber - 1).subscribe(
+      data => {
+        this.pagina = pageNumber;
+        this.produtos = data.content;
+        this.produtoSize = data.totalElements;
+      },
+      error => {
+        console.log('Ocorreu um erro ao buscar os usuários:', error);
+      }
+    );
+  }
+
+  
+  
   
 }

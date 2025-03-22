@@ -31,18 +31,24 @@
       responsiveLayout="scroll">
       <ng-template pTemplate="header">
         <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Estoque</th>
-          <th scope="col">Adicionar</th>
-          <th scope="col">Remover</th>
-          <th scope="col">Valor a ser movimentado</th>
+          <th scope="col" class="text-center">Nome</th>
+          <th scope="col" class="text-center">Estoque</th>
+          <th scope="col" class="text-center">Valor a ser movimentado</th>
+          <th scope="col" class="text-center">Adicionar</th>
+          <th scope="col" class="text-center">Remover</th>
+         
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-item>
         <tr>
           <td [pTooltip]="item.nome" tooltipPosition="top" class="truncate">{{item.nome}}</td>
-          <td>{{item.quantidade}}</td>
-          <td>
+          <td class="text-center">{{item.quantidade}}</td>    
+          <td style="width: 150px;">
+            <p-inputNumber class="form-control p-inputtext-no-border" id="valor" #nomeValidade="ngModel"
+              [(ngModel)]="quantity[item.id]" name="valor" [ngClass]="{'form-control': true, 'p-inputtext-no-border': true}">
+            </p-inputNumber>
+          </td>
+          <td style="width: 40px;">
             <div class="button-container text-center">
               <button pButton pRipple type="button" icon="pi pi-plus"
                 class="p-button-rounded p-button-text custom-button"
@@ -51,18 +57,12 @@
             </div>
 
           </td>
-          <td>
+          <td style="width: 40px;">
             <div class="button-container text-center">
               <button pButton pRipple type="button" icon="pi pi-minus"
                 class="p-button-rounded p-button-text custom-buttonMinus"
                 (click)="handleQuantityChange(item, -(quantity[item.id] || 1))"></button>
             </div>
-          </td>
-
-          <td>
-            <p-inputNumber class="form-control p-inputtext-no-border" id="valor" #nomeValidade="ngModel"
-              [(ngModel)]="quantity[item.id]" name="valor" [ngClass]="{'form-control': true, 'p-inputtext-no-border': true, 'small-input-number': true}">
-            </p-inputNumber>              
           </td>
 
         </tr>

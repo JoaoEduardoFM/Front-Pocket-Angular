@@ -22,21 +22,22 @@
                     </div>
                 </div>
             </div>
-            <p-table [value]="produtos" (onLazyLoad)="carregarPagina()" [tableStyle]="{'min-width': '40rem'}"
-                styleClass="custom-table" responsiveLayout="scroll" >
+            <p-table [value]="produtos" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="pageSize"
+                [totalRecords]="produtoSize" [lazy]="true" (onLazyLoad)="carregarPaginaLazy($event)"
+                tableStyleClass="custom-table" responsiveLayout="scroll">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th pSortableColumn="nome">Nome do produto</th>
-                        <th pSortableColumn="preco">Preço</th>
-                        <th pSortableColumn="quantidade">Estoque</th>
-                        <th>Ação</th>
+                        <th pSortableColumn="nome" class="text-center">Nome do produto</th>
+                        <th pSortableColumn="preco" class="text-center">Preço</th>
+                        <th pSortableColumn="quantidade" class="text-center">Estoque</th>
+                        <th class="text-center">Ação</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-produto>
                     <tr>
                         <td [pTooltip]="produto.nome" tooltipPosition="top" class="truncate">{{produto.nome}}</td>
-                        <td>{{produto.preco | currency:'BRL'}}</td>
-                        <td>{{produto.quantidade}}</td>
+                        <td class="text-center">{{produto.preco | currency:'BRL'}}</td>
+                        <td class="text-center">{{produto.quantidade}}</td>
                         <td class="actions-column">
                             <p-button icon="pi pi-plus" styleClass="p-button-rounded p-button-text"
                                 (click)="addToCart(produto)"></p-button>
@@ -48,7 +49,7 @@
         </p-card>
     </div>
 
-    <div class="card-content" style="flex: 1; min-width: 300px;">
+    <div class="card-content" style="flex: 1; max-width: 720px;">
         <p-card>
             <br>
             <br>
