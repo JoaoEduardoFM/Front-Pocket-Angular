@@ -1,7 +1,8 @@
 # Front-Pocket-Angular
-![angular front](https://github.com/user-attachments/assets/8a0d0fd2-10c8-4002-8f83-291169947ffb)
+![image](https://github.com/user-attachments/assets/94f099b9-d0f2-4689-aaf1-e44ab313486a)
 
-> Status: Em desenvolvimento ⚠️
+
+> Status: Desenvolvido ⚠️
 
 ### É uma aplicação planejada por mim, onde realizo o gerenciamento de estoque, venda e usuários.
 
