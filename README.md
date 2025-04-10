@@ -12,4 +12,3 @@
 + cadastro Produto
 + controle de Estoque
 + caixa (entrada e saída de produtos)
-+ gerenciamento de usuário
